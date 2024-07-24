@@ -1,0 +1,24 @@
+//Code: 
+#include <SoftwareSerial.h> const 
+int BT_RX = 10; 
+const int BT_TX = 11; 
+int sensorpin = A1; int 
+sensor; 
+SoftwareSerial bluetoothSerial(BT_RX, BT_TX); 
+void setup() 
+{ 
+Serial.begin(9600); 
+bluetoothSerial.begin(9600); 
+} 
+void loop() 
+{ 
+sensor = analogread(sensorpin); if(sensor==1023) 
+{ 
+Serial.println(" seat occupied!!"); 
+} 
+if (sensor <1023) 
+{
+Serial.println("seat is vacant!! "); 
+} 
+delay(1000);
+} 
